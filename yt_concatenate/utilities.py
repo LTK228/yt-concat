@@ -12,10 +12,6 @@ from yt_concatenate.settings import VIDEOS_DIR
 from yt_concatenate.settings import CAPTIONS_DIR
 
 
-def get_video_list_filepath(channel_id):
-    return os.path.join(YOUTUBES_URL_DIR, channel_id + '.txt')
-
-
 class Utils:
     def __init__(self):
         pass
@@ -28,9 +24,11 @@ class Utils:
         os.makedirs(CAPTIONS_DIR, exist_ok=True)
 
     # get_video_list.py
-    @staticmethod
+    def get_video_list_filepath(self, channel_id):
+        return os.path.join(YOUTUBES_URL_DIR, channel_id + '.txt')
+
     def video_list_file_exists(self, channel_id):
-        path = get_video_list_filepath(channel_id)
+        path = self.get_video_list_filepath(channel_id)
         return os.path.exists(path) and os.path.getsize(path) > 0  # 1. 檢查路徑、 2. 如果檔案大小 > 0 (有可能還沒存到內容，只建立了空檔案，就當了)
 
     @staticmethod
