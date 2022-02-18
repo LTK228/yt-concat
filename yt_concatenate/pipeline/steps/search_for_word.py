@@ -20,5 +20,5 @@ class SearchForWord(Step):
 
         print(f'在此頻道找到 {len(found)} 次關鍵字')
         # print(f'found {search_word} in {found}')
-        pprint(found)
+        # pprint(found)
         return found

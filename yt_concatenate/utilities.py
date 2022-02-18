@@ -39,4 +39,9 @@ class Utils:
     # download_captions.py
     def caption_file_exists(self, yt):
         filepath = yt.caption_filepath
-        return os.path.exists(filepath) and os.path.getsize(filepath) > 0   # 1. 檢查路徑、 2. 如果檔案大小 > 0 (有可能還沒存到內容，只建立了空檔案，就當了)
+        return os.path.exists(filepath) and os.path.getsize(filepath) > 0
+
+    # download_videos.py
+    def video_file_exists(self, yt):
+        filepath = yt.video_filepath
+        return os.path.exists(filepath) and os.path.getsize(filepath) > 0
