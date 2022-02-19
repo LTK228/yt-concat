@@ -14,6 +14,7 @@ from yt_concatenate.settings import DOWNLOAD_DIR
 from yt_concatenate.settings import YOUTUBES_URL_DIR
 from yt_concatenate.settings import VIDEOS_DIR
 from yt_concatenate.settings import CAPTIONS_DIR
+from yt_concatenate.settings import OUTPUT_DIR
 
 
 class Utils:
@@ -22,10 +23,11 @@ class Utils:
 
     # preflight.py
     def create_dirs(self):
-        os.makedirs(YOUTUBES_URL_DIR, exist_ok=True)
         os.makedirs(DOWNLOAD_DIR, exist_ok=True)
+        os.makedirs(YOUTUBES_URL_DIR, exist_ok=True)
         os.makedirs(VIDEOS_DIR, exist_ok=True)
         os.makedirs(CAPTIONS_DIR, exist_ok=True)
+        os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     # get_video_list.py
     def get_video_list_filepath(self, channel_id):
@@ -45,3 +47,12 @@ class Utils:
     def video_file_exists(self, yt):
         filepath = yt.video_filepath
         return os.path.exists(filepath) and os.path.getsize(filepath) > 0
+
+    # edit_video.py
+    def get_output_filepath(self, channel_id, search_word):
+        filename = f'{channel_id}_{search_word}.mp4'
+        return os.path.join(OUTPUT_DIR, filename)
+
+    def output_file_exists(self, channel_id, search_word):
+        path = self.get_output_filepath(channel_id, search_word)
+        return os.path.exists(path) and os.path.getsize(path) > 0

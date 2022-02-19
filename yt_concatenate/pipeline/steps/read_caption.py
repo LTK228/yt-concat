@@ -33,6 +33,35 @@ class ReadCaption(Step):
                     # time_line = str(time_line_start) + ' --> ' + str(time_line_end)     # srt 格式
                     time_line = str(time_line_start), str(time_line_end)
 
+                    # 我寫的 用於測試 edit_video.py
+                    # print(time_line)
+                    # # print(type(time_line))
+                    # print(time_line[0])
+                    #
+                    # def parse_caption_time(caption_time):
+                    #     start = caption_time[0]
+                    #     end = caption_time[1]
+                    #     return start, end
+                    #
+                    # def parse_time_str(time_str):
+                    #     intergers, ms = str(time_str).split('.')
+                    #     # intergers, ms = time_line[0].split('.')
+                    #     h = int(intergers) // 3600
+                    #     m = int(intergers) // 60
+                    #     s = str(round(int(intergers) / 60, 2)).split('.')[-1]
+                    #     ms = ms[:2]
+                    #     sec = float(s + "." + ms)
+                    #
+                    #     print(f'hr:{h}, min:{m}, sec:{sec}')
+                    #     return h, m, sec
+                    #
+                    # a = parse_time_str(time_line_start)
+                    # b = parse_time_str(time_line_end)
+                    # print(a)
+                    # print(b)
+                    # print('')
+                    ##############
+
                     captions[caption_line] = time_line
 
                     '''
