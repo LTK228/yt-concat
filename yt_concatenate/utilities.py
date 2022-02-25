@@ -6,6 +6,7 @@
 
 # standard library imports
 import os
+from time import time
 
 # related third party imports
 
@@ -36,7 +37,7 @@ class Utils:
 
     def video_list_file_exists(self, channel_id):
         path = self.get_video_list_filepath(channel_id)
-        return os.path.exists(path) and os.path.getsize(path) > 0           # 1. 檢查路徑、 2. 如果檔案大小 > 0 (有可能還沒存到內容，只建立了空檔案，就當了)
+        return os.path.exists(path) and os.path.getsize(path) > 0  # 1. 檢查路徑、 2. 如果檔案大小 > 0 (有可能還沒存到內容，只建立了空檔案，就當了)
 
     # download_captions.py
     def caption_file_exists(self, yt):
