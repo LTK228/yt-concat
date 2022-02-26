@@ -6,6 +6,7 @@
 
 # standard library imports
 import os
+import shutil
 from time import time
 
 # related third party imports
@@ -29,6 +30,10 @@ class Utils:
         os.makedirs(VIDEOS_DIR, exist_ok=True)
         os.makedirs(CAPTIONS_DIR, exist_ok=True)
         os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+    # postflight.py
+    def remove_dirs(self):
+        shutil.rmtree(DOWNLOAD_DIR)
 
     # get_video_list.py
     def get_video_list_filepath(self, channel_id):

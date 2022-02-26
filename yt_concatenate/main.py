@@ -10,16 +10,25 @@ from yt_concatenate.pipeline.steps.edit_video import EditVideo
 from yt_concatenate.pipeline.steps.postflight import Postflight
 from yt_concatenate.utilities import Utils
 from yt_concatenate.pipeline.steps.step import StepException
+from yt_concatenate.pipeline.steps.command_line_arguments import command_line_args
 
 CHANNEL_ID = 'UCKSVUHI9rbbkXhvAXK-2uxA'
 
 
 def main():
     inputs = {
-        'channel_id': CHANNEL_ID,
-        'search_word': 'incredible',
-        'limit': 50
+        # 'channel_id': 'UCKSVUHI9rbbkXhvAXK-2uxA',
+        # 'search_word': 'incredible',
+        # 'limit': 50,
+        'channel_id': '',
+        'search_word': '',
+        'limit': 0,
+        'cleanup': False,
+        'fast': False
     }
+    inputs = command_line_args(inputs)
+    print(inputs)
+
     steps = [
         Preflight(),
         GetVideoList(),
